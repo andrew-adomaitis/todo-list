@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Taskform from '../task/taskform/taskform';
 import Task from '../task/task';
 
 class Tasklist extends Component {
@@ -9,6 +10,7 @@ class Tasklist extends Component {
         ]
     }
 
+
     render() { 
         return (
             <React.Fragment>
@@ -18,6 +20,7 @@ class Tasklist extends Component {
                         <li>{task.task}</li>
                     ))}
                 </ul>
+                <Taskform />
             </React.Fragment>
         );
     }

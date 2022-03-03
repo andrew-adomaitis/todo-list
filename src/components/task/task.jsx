@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// TODO probably remove
 class Task extends Component {
     state = {  } 
     render() { 
