@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
 class Taskform extends Component {
-    getInputValue = (event) => {
-        const userValue = event.target.value;
-        console.log(userValue);
+    state = {
+        textValue: ""
     }
+
+    
 
     render() { 
         return (
-            <input type="text" onChange={this.getInputValue}></input>
+            <React.Fragment>
+                
+            </React.Fragment>
         );
     }
 }
