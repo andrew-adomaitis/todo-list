@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Taskform from '../task/taskform/taskform';
+import Task from '../task/task';
 
 class Tasklist extends Component {
     state = {
@@ -24,9 +24,12 @@ class Tasklist extends Component {
         this.setState(() => {
             return taskArray.push({
                 id: taskArray.length + 1, 
-                task: this.state.textValue
+                task: this.state.textValue,
             });
         });
+
+        this.mainInput.value = "";
+
     }
 
     render() { 
@@ -39,7 +42,8 @@ class Tasklist extends Component {
                 </ul>
                 <input 
                     type="text" 
-                    onChange={this.getInputValue} 
+                    onChange={this.getInputValue}
+                    ref={(ref) => this.mainInput= ref}
                 />
                 <input type="submit" onClick={this.handleClick} />
             </React.Fragment>
