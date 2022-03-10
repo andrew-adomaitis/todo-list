@@ -20,24 +20,34 @@ class Tasklist extends Component {
     handleClick = (e) => {
         e.preventDefault();
 
+        // Makes typing this out easier
         const taskArray = this.state.tasks;
         this.setState(() => {
+            // Add a new task to the list
             return taskArray.push({
                 id: taskArray.length + 1, 
-                task: this.state.textValue,
+                task: this.state.textValue
             });
         });
 
+        // Reset the input for convenience
         this.mainInput.value = "";
 
+    }
+
+    handleComplete = () => {
+        console.log("Deleting " + this);
     }
 
     render() { 
         return (
             <React.Fragment>
                 <ul>
-                    {this.state.tasks.map((task, index) => (
-                        <li>{task.task}</li>
+                    {this.state.tasks.map((task) => (
+                        <li><Task 
+                            task={task.task}
+                            handleComplete={this.handleComplete}
+                        /></li>
                     ))}
                 </ul>
                 <input 
