@@ -17,7 +17,7 @@ class Tasklist extends Component {
     }
 
     // Adds a new task to the list
-    handleClick = (e) => {
+    handleAdd = (e) => {
         e.preventDefault();
 
         // Makes typing this out easier
@@ -35,27 +35,29 @@ class Tasklist extends Component {
 
     }
 
-    handleComplete = () => {
-        console.log("Deleting " + this);
-    }
+    handleComplete = itemId => {
+        const items = this.state.items.filter(item => item.id !== itemId);
+        this.setState({items: items})
+    };
 
     render() { 
         return (
             <React.Fragment>
                 <ul>
-                    {this.state.tasks.map((task) => (
+                    {this.state.tasks.map((task, i) => 
                         <li><Task 
                             task={task.task}
                             handleComplete={this.handleComplete}
+                            id={i}
                         /></li>
-                    ))}
+                    )}
                 </ul>
                 <input 
                     type="text" 
                     onChange={this.getInputValue}
                     ref={(ref) => this.mainInput= ref}
                 />
-                <input type="submit" onClick={this.handleClick} />
+                <input type="submit" onClick={this.handleAdd} />
             </React.Fragment>
         );
     }
